@@ -5607,13 +5607,12 @@
               // In case unpkg fails, or the wasm was not supported, we try to load the fallback module from jsdelivr.
               // This `rive_fallback.wasm` is compiled to support older architecture.
               // TODO: (Gordon): preemptively test browser support and load the correct wasm file. Then use jsdelvr only if unpkg fails.
-              //   var backupJsdelivrUrl = "https://cdn.jsdelivr.net/npm/"
-              //     .concat(package_json__WEBPACK_IMPORTED_MODULE_1__.name, "@")
-              //     .concat(
-              //       package_json__WEBPACK_IMPORTED_MODULE_1__.version,
-              //       "/rive_fallback.wasm"
-              //     );
-              var backupJsdelivrUrl = "./index.js/rive_fallback.wasm";
+              var backupJsdelivrUrl = "https://cdn.jsdelivr.net/npm/"
+                .concat(package_json__WEBPACK_IMPORTED_MODULE_1__.name, "@")
+                .concat(
+                  package_json__WEBPACK_IMPORTED_MODULE_1__.version,
+                  "/rive_fallback.wasm"
+                );
               if (RuntimeLoader.wasmURL.toLowerCase() !== backupJsdelivrUrl) {
                 console.warn(
                   "Failed to load WASM from ".concat(
@@ -5626,8 +5625,8 @@
               } else {
                 console.error(
                   "Could not load Rive WASM file from unpkg or jsdelivr, network connection may be down, or \
-    you may need to call set a new WASM source via RuntimeLoader.setWasmUrl() and call \
-    RuntimeLoader.loadRuntime() again"
+        you may need to call set a new WASM source via RuntimeLoader.setWasmUrl() and call \
+        RuntimeLoader.loadRuntime() again"
                 );
               }
             });
@@ -5664,14 +5663,12 @@
         // Path to the Wasm file; default path works for testing only;
         // if embedded wasm is used then this is never used.
 
-        // RuntimeLoader.wasmURL = "https://unpkg.com/"
-        //   .concat(package_json__WEBPACK_IMPORTED_MODULE_1__.name, "@")
-        //   .concat(
-        //     package_json__WEBPACK_IMPORTED_MODULE_1__.version,
-        //     "/rive.wasm"
-        //   );
-
-        RuntimeLoader.wasmURL = "./index.js/rive.wasm";
+        RuntimeLoader.wasmURL = "https://unpkg.com/"
+          .concat(package_json__WEBPACK_IMPORTED_MODULE_1__.name, "@")
+          .concat(
+            package_json__WEBPACK_IMPORTED_MODULE_1__.version,
+            "/rive.wasm"
+          );
 
         return RuntimeLoader;
       })();
