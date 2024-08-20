@@ -11,20 +11,28 @@
 
     <script src="./index.js"></script>
     <script>
+      const layout = new rive.Layout({
+        fit: rive.Fit.FitWidth,
+        alignment: rive.Alignment.TopLeft,
+      });
+
       const r = new rive.Rive({
         // src: "https://cdn.rive.app/animations/vehicles.riv",
         src: "./xeeqs1.riv",
         canvas: document.getElementById("canvas"),
         autoplay: false,
         stateMachines: "State Machine 1",
-        onLoad: () => {
-          r.resizeDrawingSurfaceToCanvas();
-        },
+        layout: layout,
+        // onLoad: () => {
+        //   r.resizeDrawingSurfaceToCanvas();
+        // },
       });
 
-      canvas.addEventListener("click", () => {
-        r.play("Timeline 1");
-      });
+      r.layout = new rive.Layout({ fit: rive.Fit.Fill });
+
+      // canvas.addEventListener("click", () => {
+      //   r.play("Timeline 1");
+      // });
     </script>
   </body>
 </html>
