@@ -27,6 +27,14 @@
 
     <script src="./index.js"></script>
     <script>
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      // Example: Reading a query parameter named 'animation'
+      const unlockedParam = getQueryParam("unlocked");
+
       let layout = new rive.Layout({
         fit: rive.Fit.Contain,
         alignment: rive.Alignment.TopCenter,
@@ -45,7 +53,9 @@
       });
 
       canvas.addEventListener("click", () => {
-        r.play("Timeline 1");
+        if (unlockedParam === "true") {
+          r.play("Timeline 1");
+        }
       });
     </script>
   </body>
