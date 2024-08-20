@@ -5,12 +5,38 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; connect-src 'self' https://*.w3s.link https://*.nftstorage.link https://*.dweb.link https://ipfs.io/ipfs/ https://*.githubusercontent.com https://polygon-rpc.com https://rpc.testnet.fantom.network https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' blob:;"
     /> -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      #canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
   </head>
   <body>
-    <canvas id="canvas" width="200" height="200"></canvas>
+    <canvas id="canvas"></canvas>
 
     <script src="./index.js"></script>
     <script>
+      const canvas = document.getElementById("canvas");
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+
       const r = new rive.Rive({
         // src: "https://cdn.rive.app/animations/vehicles.riv",
         src: "./xeeqs1.riv",
