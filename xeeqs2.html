@@ -28,7 +28,7 @@
     <script src="./index.js"></script>
     <script>
       let layout = new rive.Layout({
-        fit: rive.Fit.Cover,
+        fit: rive.Fit.Contain,
       });
 
       const r = new rive.Rive({
@@ -43,9 +43,9 @@
         // },
       });
 
-      // canvas.addEventListener("click", () => {
-      //   r.play("Timeline 1");
-      // });
+      canvas.addEventListener("click", () => {
+        r.play("Timeline 1");
+      });
     </script>
   </body>
 </html>
